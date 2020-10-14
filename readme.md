@@ -13,9 +13,13 @@
 ## some example
 
 ```
+// 导入方式
+import Secure = require('mali-secure-ts');
+
+
 var Secure = require('./secure.js')
 
-let s = new Secure.Secure('appid', 'cid1', '192006250b4c09247ec02edce69f6a2d')
+let s = new Secure.Secure('appid', 'cid1', '192006250b4c09247ec02edce69f6a2d', "1.0.3")
 
 let uri1 = s.getSign(
   'https://mp.weixin.qq.com/wxamp/devprofile/get_profile?token=1515154505&lang=zh_CN'
