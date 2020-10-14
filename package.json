@@ -9,6 +9,7 @@
     "publish": "npm publish"
   },
   "dependencies": {
+    "crypto": "^1.0.1",
     "ts-md5": "^1.2.7"
   },
   "repository": {
