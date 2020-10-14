@@ -1,0 +1,35 @@
+{
+  "name": "mali-secure-ts",
+  "version": "1.0.3",
+  "description": "\bfor bestmali with wechat pay Sign and decrypt data with aes-256-cbc",
+  "main": "lib/secure.js",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "publish": "npm publish"
+  },
+  "dependencies": {
+    "ts-md5": "^1.2.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cute-angelia/mali-secure.git"
+  },
+  "homepage": "https://github.com/cute-angelia/mali-secure.git",
+  "bugs": {
+    "url": "https://github.com/cute-angelia/mali-secure.git/issues"
+  },
+  "keywords": [
+    "secure",
+    "decrypt",
+    "wechat sign"
+  ],
+  "author": "rose2099.c@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.9.3"
+  }
+}
