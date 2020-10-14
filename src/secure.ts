@@ -1,4 +1,6 @@
-import { Md5 } from 'ts-md5/dist/md5';
+import {
+  Md5
+} from 'ts-md5/dist/md5';
 var parseuri = require('./parseuri')
 
 class Secure {
@@ -19,17 +21,24 @@ class Secure {
     try {
       debug = localStorage && localStorage['env'] == 'local' ? 'true' : 'false'
     } catch (e) {}
-    let data = {
-      debug: debug,
-      appid: this.appid,
-      cid: this.cid,
-      nonce_str: this._generateNonceString(8),
-      nonce_time: this._generateNonceDateline(),
-    }
     if (debug == 'false') {
-      delete data.debug
+      let data = {
+        appid: this.appid,
+        cid: this.cid,
+        nonce_str: this._generateNonceString(8),
+        nonce_time: this._generateNonceDateline(),
+      }
+      return this._generateSign(url, data)
+    } else {
+      let data = {
+        debug: debug,
+        appid: this.appid,
+        cid: this.cid,
+        nonce_str: this._generateNonceString(8),
+        nonce_time: this._generateNonceDateline(),
+      }
+      return this._generateSign(url, data)
     }
-    return this._generateSign(url, data)
   }
 
   // data = { "nonce_str": "nonce_str=xxx", "nonce_time": "nonce_time="xxx"}
@@ -63,7 +72,7 @@ class Secure {
     let stringA = params.join('&')
     let stringSignTemp = stringA + '&key=' + this.secret
 
-    var signMd5 = 'sign=' +  Md5.hashStr(stringSignTemp).toString().toLowerCase()
+    var signMd5 = 'sign=' + Md5.hashStr(stringSignTemp).toString().toLowerCase()
     params.push(signMd5)
 
     if (parseurl.protocol.length > 2) {
@@ -96,4 +105,4 @@ class Secure {
   }
 }
 
-module.exports.Secure = Secure;
+export = Secure;
