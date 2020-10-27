@@ -1,20 +1,18 @@
-
-
-
 // const { Secure } = new require("./secure")
+import Secure from "./lib/secure.d"
 
 // // cid 商户 id
 // // openid 三方用户 id
-// let s = new Secure("appxx", "1", "123456", "192006250b4c09247ec02edce69f6a2d")
+let s = new Secure("appxx", "1", "123456", "192006250b4c09247ec02edce69f6a2d", "1.0.1")
 
 // // 获取微信支付公共签名后的地址
-// let uri = s.getSign("https://mp.weixin.qq.com/wxamp/devprofile/get_profile?token=1515154505&lang=zh_CN")
+let uri = s.getSign("https://mp.weixin.qq.com/wxamp/devprofile/get_profile?token=1515154505&lang=zh_CN")
 // let uri2 = s.getSign("/get_profile?token=1515154505&lang=zh_CN")
 // let uri3 = s.getSign("www.baidu.com/get_profile?token=1515154505&lang=zh_CN")
 
 // let uri4 = s.getSignAppid("http://127.0.0.1:3223?token=1515154505&lang=zh_CN")
 
-// console.log(uri);
+console.log(uri);
 // console.log(uri2);
 // console.log(uri3);
 // console.log("uri4 => ", uri4);
