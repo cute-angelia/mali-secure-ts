@@ -1,4 +1,4 @@
-declare class Secure {
+export declare class Secure {
     appid: string;
     version: string;
     cid: number;
@@ -9,4 +9,3 @@ declare class Secure {
     _generateNonceDateline(): number;
     _generateNonceString(length: number): string;
 }
-export = Secure;

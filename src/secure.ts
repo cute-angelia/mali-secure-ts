@@ -3,7 +3,7 @@ import {
 } from 'ts-md5/dist/md5';
 var parseuri = require('./parseuri')
 
-class Secure {
+export class Secure {
   appid: string
   version: string
   cid: number
@@ -103,6 +103,4 @@ class Secure {
     }
     return noceStr
   }
-}
-
-export = Secure;
+} ;
