@@ -9,22 +9,31 @@ export class Secure {
   cid: number
   secret: string
 
-  constructor(appid: string, cid: number, secret: string, version: string) {
+  device: string
+  platform: string
+
+  constructor(appid: string, cid: number, secret: string, version: string, device: string, platform: string) {
     this.appid = appid
     this.cid = cid
     this.secret = secret
     this.version = version
+
+    this.device = device
+    this.platform = platform
   }
 
   getSign(url: string) {
     let debug = 'false'
     try {
       debug = localStorage && localStorage['env'] == 'local' ? 'true' : 'false'
-    } catch (e) {}
+    } catch (e) { }
     if (debug == 'false') {
       let data = {
         appid: this.appid,
         cid: this.cid,
+        version: this.version,
+        device: this.device,
+        platform: this.platform,
         nonce_str: this._generateNonceString(8),
         nonce_time: this._generateNonceDateline(),
       }
@@ -34,6 +43,9 @@ export class Secure {
         debug: debug,
         appid: this.appid,
         cid: this.cid,
+        version: this.version,
+        device: this.device,
+        platform: this.platform,
         nonce_str: this._generateNonceString(8),
         nonce_time: this._generateNonceDateline(),
       }
@@ -103,4 +115,4 @@ export class Secure {
     }
     return noceStr
   }
-} ;
+};
