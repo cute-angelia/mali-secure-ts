@@ -16,8 +16,8 @@ export class Secure {
     this.appid = appid
     this.cid = cid
     this.secret = secret
-    this.version = version
 
+    this.version = version
     this.device = device
     this.platform = platform
   }

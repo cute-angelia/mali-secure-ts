@@ -3,7 +3,9 @@ export declare class Secure {
     version: string;
     cid: number;
     secret: string;
-    constructor(appid: string, cid: number, secret: string, version: string);
+    device: string;
+    platform: string;
+    constructor(appid: string, cid: number, secret: string, version: string, device: string, platform: string);
     getSign(url: string): string;
     _generateSign(url: string, data: any): string;
     _generateNonceDateline(): number;

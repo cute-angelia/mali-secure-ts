@@ -6,7 +6,7 @@ let cid = 1
 let appSecret = "secret"
 let version = "1.0.1"
 
-let s = new Secure(appid, cid, appSecret, version)
+let s = new Secure(appid, cid, appSecret, version, "", "")
 
 let uri1 = s.getSign(
   'https://mp.weixin.qq.com/wxamp/devprofile/get_profile?token=1515154505&lang=zh_CN'
