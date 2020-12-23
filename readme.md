@@ -14,6 +14,8 @@
 
 ```
 // 导入方式
+import {Secure} from "mali-secure-ts";
+
 import Secure = require('mali-secure-ts');
 
 or

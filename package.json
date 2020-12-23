@@ -4,7 +4,7 @@
   "description": "\bfor bestmali with wechat pay Sign and decrypt data with aes-256-cbc",
   "main": "lib/secure.js",
   "scripts": {
-    "test": "jest --config jestconfig.json",
+    "test": "tsc && node lib/test.js",
     "build": "tsc",
     "publish": "npm publish"
   },

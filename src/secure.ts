@@ -53,6 +53,37 @@ export class Secure {
     }
   }
 
+  getSignTest(url: string, nonce_str: string, nonce_time: string) {
+    let debug = 'false'
+    try {
+      debug = localStorage && localStorage['env'] == 'local' ? 'true' : 'false'
+    } catch (e) { }
+    if (debug == 'false') {
+      let data = {
+        appid: this.appid,
+        cid: this.cid,
+        version: this.version,
+        device: this.device,
+        platform: this.platform,
+        nonce_str: nonce_str,
+        nonce_time: nonce_time,
+      }
+      return this._generateSign(url, data)
+    } else {
+      let data = {
+        debug: debug,
+        appid: this.appid,
+        cid: this.cid,
+        version: this.version,
+        device: this.device,
+        platform: this.platform,
+        nonce_str: nonce_str,
+        nonce_time: nonce_time,
+      }
+      return this._generateSign(url, data)
+    }
+  }
+
   // data = { "nonce_str": "nonce_str=xxx", "nonce_time": "nonce_time="xxx"}
   _generateSign(url: string, data: any) {
     var parseurl = parseuri(url)
@@ -83,6 +114,8 @@ export class Secure {
 
     let stringA = params.join('&')
     let stringSignTemp = stringA + '&key=' + this.secret
+
+    console.log(stringSignTemp)
 
     var signMd5 = 'sign=' + Md5.hashStr(stringSignTemp).toString().toLowerCase()
     params.push(signMd5)

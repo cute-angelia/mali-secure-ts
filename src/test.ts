@@ -1,15 +1,24 @@
 // var Secure = require('./secure.js')
 import { Secure } from "./secure";
 
-let appid = "appidxxxx"
+let appid = "20201111091600509389"
 let cid = 1
-let appSecret = "secret"
-let version = "1.0.1"
+let appSecret = "9632d8f2265834e22648d95da558fe13"
+let version = "1.9.8"
+let device = "ios"
+let platform = "wechat"
+let nonce_str = "iCDxXSWo"
+let nonce_time = "1606978537"
 
-let s = new Secure(appid, cid, appSecret, version, "", "")
+// https://api-game-common.yqgame.online/v1/auth/miniWx/getToken?appid=20201111091600509389&cid=1&debug=1&device=ios&nonce_str=iCDxXSWo&nonce_time=1606978537&platform=wechat&version=1.9.8&sign=47421861f191dfc9d4b3efe7789ed09c
 
-let uri1 = s.getSign(
-  'https://mp.weixin.qq.com/wxamp/devprofile/get_profile?token=1515154505&lang=zh_CN'
+let s = new Secure(appid, cid, appSecret, version, device, platform)
+
+let uri1 = s.getSignTest(
+  //'https://mp.weixin.qq.com/wxamp/devprofile/get_profile?token=1515154505&lang=zh_CN'
+  'https://api-game-common.yqgame.online/v1/auth/miniWx/getToken?debug=1',
+  nonce_str,
+  nonce_time
 )
 
 console.log(uri1)
