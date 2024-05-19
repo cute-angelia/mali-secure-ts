@@ -1,6 +1,6 @@
 {
   "name": "mali-secure-ts",
-  "version": "1.0.8",
+  "version": "1.0.13",
   "description": "\bfor bestmali with wechat pay Sign and decrypt data with xor",
   "main": "lib/secure.js",
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "type": "module",
   "dependencies": {
+    "buffer": "^6.0.3",
     "ts-md5": "^1.2.7"
   },
   "repository": {

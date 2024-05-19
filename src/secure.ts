@@ -3,6 +3,7 @@ import {
 } from 'ts-md5/dist/md5';
 
 import { parseuri } from "./parseuri";
+import { Buffer } from 'buffer';
 
 export interface DataType {
   appid: string;
@@ -32,7 +33,8 @@ export class Secure {
     this.platform = platform
   }
 
-  getSign(url: string, crypto?: number) {
+  // SignUrl 签名
+  SignUrl(url: string, crypto?: number) {
     let debug = 'false'
     try {
       debug = localStorage && localStorage['env'] == 'local' ? 'true' : 'false'
@@ -56,6 +58,35 @@ export class Secure {
       params.crypto = crypto
     }
     return this._generateSign(url, params)
+  }
+
+
+  // DecryptCrypto2 解密密文
+  /**
+   * demo:
+   * 
+   *  if (response && response.code == 0) {
+        if (response.data == null || typeof response.data === 'object' || Array.isArray(response.data)) { } else {
+          let key = "ydxdoaz318x3jvaf" + response.data.substr(0, 16);
+          let ciphertext = response.data.substr(16, response.data.length);
+          response.data = DecryptCrypto2(ciphertext, key)
+        }
+      }
+   * 
+   */
+  DecryptCrypto2(inputText: string, key: string) {
+
+    var xorInput = Buffer.from(inputText, 'base64');
+    var result = '';
+    for (var i = 0; i < xorInput.length; i++) {
+      var j = i % key.length;
+      var c = String.fromCharCode(xorInput[i] ^ key.charCodeAt(j));
+      result += c;
+    }
+
+    var buffer = Buffer.from(result, 'base64'); // 创建Buffer实例
+    var rs = buffer.toString();
+    return JSON.parse(rs)
   }
 
   // data = { "nonce_str": "nonce_str=xxx", "nonce_time": "nonce_time="xxx"}
