@@ -1,7 +1,7 @@
 {
   "name": "mali-secure-ts",
-  "version": "1.0.7",
-  "description": "\bfor bestmali with wechat pay Sign and decrypt data with aes-256-cbc",
+  "version": "1.0.8",
+  "description": "\bfor bestmali with wechat pay Sign and decrypt data with xor",
   "main": "lib/secure.js",
   "scripts": {
     "test": "tsc && node lib/test.js",
@@ -14,11 +14,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cute-angelia/mali-secure.git"
+    "url": "git+https://github.com/cute-angelia/mali-secure-ts.git"
   },
-  "homepage": "https://github.com/cute-angelia/mali-secure.git",
+  "homepage": "https://github.com/cute-angelia/mali-secure-ts.git",
   "bugs": {
-    "url": "https://github.com/cute-angelia/mali-secure.git/issues"
+    "url": "https://github.com/cute-angelia/mali-secure-ts.git/issues"
   },
   "keywords": [
     "secure",

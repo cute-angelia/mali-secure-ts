@@ -24,12 +24,11 @@ var Secure = require('./secure.js')
 
 // 初始化实例
 // appid   应用id
-// cid     渠道
 // secret  秘钥
 // version 版本号 1.0.1
 // device  设备信息 ios_14.0.1
 // platform 平台: app，wechat，h5
-let s = new Secure.Secure('appid', 'cid1', '192006250b4c09247ec02edce69f6a2d', "1.0.3", "ios_14.2.3", "app")
+let s = new Secure.Secure('appid', '192006250b4c09247ec02edce69f6a2d', "1.0.3", "ios_14.2.3", "app")
 
 // 获得签名后的 url
 let uri1 = s.getSign(

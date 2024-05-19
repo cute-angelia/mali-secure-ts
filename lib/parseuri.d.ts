@@ -4,7 +4,4 @@
  * @author Steven Levithan <stevenlevithan.com> (MIT license)
  * @api private
  */
-declare var re: RegExp;
-declare var parts: string[];
-declare function pathNames(obj: string, path: string): string[];
-declare function queryKey(uri: string, query: any): any;
+export declare function parseuri(str: string): any;

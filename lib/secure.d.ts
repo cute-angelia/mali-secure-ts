@@ -1,13 +1,21 @@
-export declare class Secure {
+export interface DataType {
     appid: string;
     version: string;
-    cid: number;
-    secret: string;
     device: string;
     platform: string;
-    constructor(appid: string, cid: number, secret: string, version: string, device: string, platform: string);
-    getSign(url: string): string;
-    getSignTest(url: string, nonce_str: string, nonce_time: string): string;
+    nonce_str: string;
+    nonce_time: number;
+    debug?: string;
+    crypto?: number;
+}
+export declare class Secure {
+    appid: string;
+    secret: string;
+    version: string;
+    device?: string;
+    platform?: string;
+    constructor(appid: string, secret: string, version: string, device?: string, platform?: string);
+    getSign(url: string, crypto?: number): string;
     _generateSign(url: string, data: any): string;
     _generateNonceDateline(): number;
     _generateNonceString(length: number): string;

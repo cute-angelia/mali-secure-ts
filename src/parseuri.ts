@@ -24,7 +24,7 @@ var parts = [
   'anchor',
 ]
 
-module.exports = function parseuri(str: string) {
+export function parseuri(str: string) {
   var src = str,
     b = str.indexOf('['),
     e = str.indexOf(']')
@@ -36,7 +36,7 @@ module.exports = function parseuri(str: string) {
       str.substring(e, str.length)
   }
 
-  var m = re.exec(str || ''), uri:any = {}, i = 14
+  var m = re.exec(str || ''), uri: any = {}, i = 14
 
   while (i--) {
     uri[parts[i]] = m == null ? "" : m[i] || ''
@@ -58,22 +58,22 @@ module.exports = function parseuri(str: string) {
   return uri
 }
 
-function pathNames(obj:string, path:string) {
+function pathNames(obj: string, path: string) {
   var regx = /\/{2,9}/g,
     names = path.replace(regx, '/').split('/')
 
-  if (path.substr(0, 1) == '/' || path.length === 0) {
+  if (path.substring(0, 1) == '/' || path.length === 0) {
     names.splice(0, 1)
   }
-  if (path.substr(path.length - 1, 1) == '/') {
+  if (path.substring(path.length - 1, 1) == '/') {
     names.splice(names.length - 1, 1)
   }
 
   return names
 }
 
-function queryKey(uri:string, query:any) {
-  var data:any = {}
+function queryKey(uri: string, query: any) {
+  var data: any = {}
 
   query.replace(/(?:^|&)([^&=]*)=?([^&]*)/g, function ($0: any, $1: any, $2: any) {
     if ($1) {
