@@ -120,7 +120,7 @@ export class Secure {
     let stringA = params.join('&')
     let stringSignTemp = stringA + '&key=' + this.secret
 
-    console.log(stringSignTemp)
+    // console.log(stringSignTemp)
 
     var signMd5 = 'sign=' + Md5.hashStr(stringSignTemp).toString().toLowerCase()
     params.push(signMd5)
