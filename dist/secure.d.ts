@@ -8,7 +8,7 @@ export interface DataType {
     debug?: string;
     crypto?: number;
 }
-export declare class Secure {
+export default class Secure {
     appid: string;
     secret: string;
     version: string;

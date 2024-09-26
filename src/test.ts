@@ -1,4 +1,4 @@
-import { Secure } from "./secure";
+import Secure from "./secure.js";
 
 let appid = "20201111091600509389"
 let appSecret = "9632d8f2265834e22648d95da558fe13"

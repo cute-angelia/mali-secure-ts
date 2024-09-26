@@ -1,4 +1,4 @@
-import { Secure } from "./secure";
+import Secure from "./secure.js";
 var appid = "20201111091600509389";
 var appSecret = "9632d8f2265834e22648d95da558fe13";
 var version = "1.0.8";

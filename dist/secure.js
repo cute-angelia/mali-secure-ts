@@ -1,5 +1,5 @@
-import { Md5 } from 'ts-md5/dist/md5';
-import { parseuri } from "./parseuri";
+import CryptoES from "crypto-es";
+import { parseuri } from "./parseuri.js";
 import { Buffer } from 'buffer';
 var Secure = /** @class */ (function () {
     function Secure(appid, secret, version, device, platform) {
@@ -86,7 +86,7 @@ var Secure = /** @class */ (function () {
         var stringA = params.join('&');
         var stringSignTemp = stringA + '&key=' + this.secret;
         // console.log(stringSignTemp)
-        var signMd5 = 'sign=' + Md5.hashStr(stringSignTemp).toString().toLowerCase();
+        var signMd5 = 'sign=' + CryptoES.MD5(stringSignTemp).toString().toLowerCase();
         params.push(signMd5);
         if (parseurl.protocol.length > 2) {
             return (parseurl.protocol +
@@ -115,5 +115,5 @@ var Secure = /** @class */ (function () {
     };
     return Secure;
 }());
-export { Secure };
+export default Secure;
 ;
