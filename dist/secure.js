@@ -1,6 +1,6 @@
 import CryptoES from "crypto-es";
 import { parseuri } from "./parseuri.js";
-import { Buffer } from 'buffer';
+import { decode } from '@cnwhy/base64';
 var Secure = /** @class */ (function () {
     function Secure(appid, secret, version, device, platform) {
         this.appid = appid;
@@ -46,16 +46,17 @@ var Secure = /** @class */ (function () {
      *
      */
     Secure.prototype.DecryptCrypto2 = function (inputText, key) {
-        var xorInput = Buffer.from(inputText, 'base64');
+        // 字符串转为字节数组
+        var xorInput = decode(inputText);
         var result = '';
         for (var i = 0; i < xorInput.length; i++) {
             var j = i % key.length;
             var c = String.fromCharCode(xorInput[i] ^ key.charCodeAt(j));
             result += c;
         }
-        var buffer = Buffer.from(result, 'base64'); // 创建Buffer实例
-        var rs = buffer.toString();
-        return JSON.parse(rs);
+        // Base64解码最终结果
+        var decodedResult = decode(result).toString();
+        return JSON.parse(decodedResult);
     };
     // data = { "nonce_str": "nonce_str=xxx", "nonce_time": "nonce_time="xxx"}
     Secure.prototype._generateSign = function (url, data) {
