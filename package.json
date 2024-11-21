@@ -1,7 +1,7 @@
 {
   "name": "mali-secure-ts",
-  "version": "1.0.16",
-  "description": "\bfor bestmali with wechat pay Sign and decrypt data with xor",
+  "version": "1.0.17",
+  "description": "mali-secure-ts is for bestmali with wechat pay Sign and decrypt data with xor",
   "main": "dist/secure.js",
   "scripts": {
     "test": "tsc && node dist/test.js",
