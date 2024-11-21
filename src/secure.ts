@@ -1,6 +1,6 @@
 import CryptoES from "crypto-es";
 import { parseuri } from "./parseuri.js";
-import { decode } from '@cnwhy/base64';
+// import { decode } from '@cnwhy/base64';
 
 export interface DataType {
   appid: string;
@@ -71,22 +71,22 @@ export default class Secure {
       }
    * 
    */
-  DecryptCrypto2(inputText: string, key: string) {
-    // 字符串转为字节数组
-    const xorInput = decode(inputText);
+  // DecryptCrypto2(inputText: string, key: string) {
+  //   // 字符串转为字节数组
+  //   const xorInput = decode(inputText);
 
-    let result = '';
-    for (let i = 0; i < xorInput.length; i++) {
-      const j = i % key.length;
-      const c = String.fromCharCode(xorInput[i] ^ key.charCodeAt(j));
-      result += c;
-    }
+  //   let result = '';
+  //   for (let i = 0; i < xorInput.length; i++) {
+  //     const j = i % key.length;
+  //     const c = String.fromCharCode(xorInput[i] ^ key.charCodeAt(j));
+  //     result += c;
+  //   }
 
-    // Base64解码最终结果
-    const decodedResult = decode(result).toString();
+  //   // Base64解码最终结果
+  //   const decodedResult = decode(result).toString();
 
-    return JSON.parse(decodedResult);
-  }
+  //   return JSON.parse(decodedResult);
+  // }
 
   // data = { "nonce_str": "nonce_str=xxx", "nonce_time": "nonce_time="xxx"}
   _generateSign(url: string, data: any) {
