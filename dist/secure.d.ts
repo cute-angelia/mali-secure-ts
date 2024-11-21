@@ -28,7 +28,6 @@ export default class Secure {
         }
      *
      */
-    DecryptCrypto2(inputText: string, key: string): any;
     _generateSign(url: string, data: any): string;
     _generateNonceDateline(): number;
     _generateNonceString(length: number): string;
